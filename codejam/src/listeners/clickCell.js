@@ -1,97 +1,36 @@
-import cellAnimation from "../components/cellAnimation";
-import changeMatrix from "../components/changeMatrix";
-import getCoordsAnimationStart from "../helpers/getCoordsAnimationStart";
-import getCoordsAvailableCells from "../helpers/getCoordsAvailableCells";
 import getIdAvailableCells from "../helpers/getIdAvailableCells";
-import getCoordsAnimationEnd from "../helpers/getCoordsAnimationEnd";
-import renderMatrix from "../components/renderMatrix";
-import mouseClickSimulation from "../components/mouseClickSimulation";
+import addClassAvailableCells from "../components/addClassAvailableCells";
+import myAudioResource from "../assets/usb-slide-back-106529.mp3";
+import handleClickCell from "../components/handleClickCell";
 
 function clickCell(matrix, animationAvailable, transition) {
-  const cell = document.querySelector(".field__list");
+  const cells = document.querySelector(".field__list");
+
   let idAvailableCells = getIdAvailableCells(matrix);
+
+  addClassAvailableCells(idAvailableCells);
   const transitionNumber = transition.slice(0, -1);
+  const myAudio = new Audio(myAudioResource);
+  // debugger;
 
-  cell.addEventListener("click", (e) => {
-    const id = Number(e.target.id);
-
-    if (!animationAvailable) return;
-
-    if (idAvailableCells.indexOf(id) === 0) {
-      animationAvailable = false;
-      cellAnimation(id, "top", transition);
-
-      setTimeout(() => {
-        changeMatrix(
-          matrix,
-          getCoordsAnimationStart(matrix, "top"),
-          getCoordsAnimationEnd(matrix, "top")
-        );
-        idAvailableCells = getIdAvailableCells(matrix);
-        renderMatrix(matrix);
-        // mouseClickSimulation(12);
-
-        animationAvailable = true;
-        console.log("animation end");
-      }, transitionNumber * 1000);
-    }
-
-    if (idAvailableCells.indexOf(id) === 1) {
-      animationAvailable = false;
-      cellAnimation(id, "right", transition);
-
-      setTimeout(() => {
-        changeMatrix(
-          matrix,
-          getCoordsAnimationStart(matrix, "right"),
-          getCoordsAnimationEnd(matrix, "right")
-        );
-        idAvailableCells = getIdAvailableCells(matrix);
-        renderMatrix(matrix);
-        // mouseClickSimulation(12);
-
-        animationAvailable = true;
-        console.log("animation end");
-      }, transitionNumber * 1000);
-    }
-
-    if (idAvailableCells.indexOf(id) === 2) {
-      animationAvailable = false;
-      cellAnimation(id, "bottom", transition);
-
-      setTimeout(() => {
-        changeMatrix(
-          matrix,
-          getCoordsAnimationStart(matrix, "bottom"),
-          getCoordsAnimationEnd(matrix, "bottom")
-        );
-        idAvailableCells = getIdAvailableCells(matrix);
-        renderMatrix(matrix);
-        // mouseClickSimulation(12);
-
-        animationAvailable = true;
-        console.log("animation end");
-      }, transitionNumber * 1000);
-    }
-
-    if (idAvailableCells.indexOf(id) === 3) {
-      animationAvailable = false;
-      cellAnimation(id, "left", transition);
-
-      setTimeout(() => {
-        changeMatrix(
-          matrix,
-          getCoordsAnimationStart(matrix, "left"),
-          getCoordsAnimationEnd(matrix, "left")
-        );
-        idAvailableCells = getIdAvailableCells(matrix);
-        renderMatrix(matrix);
-        // mouseClickSimulation(12);
-
-        animationAvailable = true;
-        console.log("animation end");
-      }, transitionNumber * 1000);
-    }
-  });
+  console.log(
+    matrix,
+    animationAvailable,
+    transition,
+    idAvailableCells,
+    myAudio,
+    transitionNumber
+  );
+  cells.addEventListener(
+    "click",
+    handleClickCell(
+      matrix,
+      animationAvailable,
+      transition,
+      idAvailableCells,
+      myAudio,
+      transitionNumber
+    )
+  );
 }
 export default clickCell;

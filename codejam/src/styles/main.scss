@@ -37,4 +37,30 @@
     background: grey;
     border: none;
   }
+  &--available {
+    cursor: pointer;
+    &:hover {
+      background-color: rgb(125, 150, 125);
+    }
+  }
+}
+.navigation {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  &__button {
+    cursor: pointer;
+  }
+}
+.sound {
+  background: url("../assets/speaker.png");
+  background-size: 100%;
+  width: 40px;
+  height: 40px;
+  border: none;
+  &--off {
+    background: url(../assets/mute.png);
+    background-size: 100%;
+  }
 }
