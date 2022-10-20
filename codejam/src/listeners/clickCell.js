@@ -3,9 +3,9 @@ import changeMatrix from "../components/changeMatrix";
 import getCoordsAnimationStart from "../helpers/getCoordsAnimationStart";
 import getCoordsAvailableCells from "../helpers/getCoordsAvailableCells";
 import getIdAvailableCells from "../helpers/getIdAvailableCells";
-
 import getCoordsAnimationEnd from "../helpers/getCoordsAnimationEnd";
 import renderMatrix from "../components/renderMatrix";
+import mouseClickSimulation from "../components/mouseClickSimulation";
 
 function clickCell(matrix, animationAvailable, transition) {
   const cell = document.querySelector(".field__list");
@@ -29,7 +29,8 @@ function clickCell(matrix, animationAvailable, transition) {
         );
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
-        console.log(matrix);
+        // mouseClickSimulation(12);
+
         animationAvailable = true;
         console.log("animation end");
       }, transitionNumber * 1000);
@@ -47,7 +48,8 @@ function clickCell(matrix, animationAvailable, transition) {
         );
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
-        console.log(matrix);
+        // mouseClickSimulation(12);
+
         animationAvailable = true;
         console.log("animation end");
       }, transitionNumber * 1000);
@@ -65,7 +67,8 @@ function clickCell(matrix, animationAvailable, transition) {
         );
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
-        console.log(matrix);
+        // mouseClickSimulation(12);
+
         animationAvailable = true;
         console.log("animation end");
       }, transitionNumber * 1000);
@@ -83,7 +86,8 @@ function clickCell(matrix, animationAvailable, transition) {
         );
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
-        console.log(matrix);
+        // mouseClickSimulation(12);
+
         animationAvailable = true;
         console.log("animation end");
       }, transitionNumber * 1000);
