@@ -3,7 +3,6 @@ import createHtmlTag from "./createHtmlTag";
 
 function renderMatrix(matrix) {
   const field = document.querySelector(".field__list");
-  console.log(field.hasChildNodes());
   if (field.hasChildNodes()) {
     field.innerHTML = "";
   }

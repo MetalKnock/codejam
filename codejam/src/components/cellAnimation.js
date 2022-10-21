@@ -7,7 +7,6 @@ function cellAnimation(number, direction, transition, visible = true) {
   const distance = widthCell + gap;
   const cell = document.getElementById(number);
 
-  console.log(cell);
   if (visible) {
     cell.style.transition = transition;
   }

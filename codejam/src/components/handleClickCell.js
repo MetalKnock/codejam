@@ -7,23 +7,24 @@ import renderMatrix from "../components/renderMatrix";
 import removeClassAvailableCells from "../components/removeClassAvailableCells";
 import getIdAvailableCells from "../helpers/getIdAvailableCells";
 import addClassAvailableCells from "../components/addClassAvailableCells";
+import getAnimationAvailable from "../helpers/getAnimationAvailable";
+import switchAnimationAvailable from "../helpers/switchAnimationAvailable";
 
 function handleClickCell(
   matrix,
-  animationAvailable,
   transition,
   idAvailableCells,
   myAudio,
   transitionNumber
 ) {
   return function curriedFunc(e) {
-    console.log("this is a big function");
     const id = Number(e.target.id);
 
-    if (!animationAvailable) return;
+    if (!getAnimationAvailable()) return;
 
     if (idAvailableCells.indexOf(id) === 0) {
-      animationAvailable = false;
+      switchAnimationAvailable();
+
       cellAnimation(id, "top", transition);
       removeClassAvailableCells();
       if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
@@ -38,12 +39,13 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
-        animationAvailable = true;
+        switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
 
     if (idAvailableCells.indexOf(id) === 1) {
-      animationAvailable = false;
+      switchAnimationAvailable();
+
       cellAnimation(id, "right", transition);
       removeClassAvailableCells();
       if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
@@ -58,12 +60,13 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
-        animationAvailable = true;
+        switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
 
     if (idAvailableCells.indexOf(id) === 2) {
-      animationAvailable = false;
+      switchAnimationAvailable();
+
       cellAnimation(id, "bottom", transition);
       removeClassAvailableCells();
       if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
@@ -78,12 +81,13 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
-        animationAvailable = true;
+        switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
 
     if (idAvailableCells.indexOf(id) === 3) {
-      animationAvailable = false;
+      switchAnimationAvailable();
+
       cellAnimation(id, "left", transition);
       removeClassAvailableCells();
       if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
@@ -98,7 +102,7 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
-        animationAvailable = true;
+        switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
   };

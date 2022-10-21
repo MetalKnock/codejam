@@ -1,10 +1,10 @@
 import handleClickNavigation from "../components/handleClickNavigation";
 
-function clickNavigation(matrix, animationAvailable, transition) {
+function clickNavigation(matrix, transition, size) {
   const navigation = document.querySelector(".navigation");
   navigation.addEventListener(
     "click",
-    handleClickNavigation(matrix, animationAvailable, transition)
+    handleClickNavigation(matrix, transition, size)
   );
 }
 export default clickNavigation;
