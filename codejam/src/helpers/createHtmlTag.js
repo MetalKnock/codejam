@@ -11,7 +11,5 @@ function createHtmlTag(tag, className, parentClassName, inner = "", id) {
     newTag.id = id;
   }
   parent.append(newTag);
-  // document.querySelector(`.${className.split(" ")[0]}`).classList.add(inner);
-  // console.log(document.querySelector(`.${className.split(" ")[0]}`));
 }
 export default createHtmlTag;

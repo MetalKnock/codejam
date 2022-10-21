@@ -6,6 +6,10 @@ import myAudioResource from "../assets/usb-slide-back-106529.mp3";
 import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import deleteClickCell from "../helpers/deleteClickCell";
 import getSolvableMatrix from "../helpers/getSolvableMatrix";
+import zeroingNumberOfMoves from "../helpers/zeroingNumberOfMoves";
+import renderMoves from "../helpers/renderMoves";
+import getNumberOfMoves from "../helpers/getNumberOfMoves";
+import grag from "../listeners/grag";
 
 function handleClickNavigation(matrix, transition, size) {
   return function curriedFunc(e) {
@@ -16,10 +20,13 @@ function handleClickNavigation(matrix, transition, size) {
       matrix = getSolvableMatrix(size);
       renderMatrix(matrix);
       clickCell(matrix, transition);
+      zeroingNumberOfMoves();
+      renderMoves(getNumberOfMoves());
     }
 
     if (e.target.classList.contains("save")) {
       localStorage.setItem("matrix", JSON.stringify(matrix));
+      localStorage.setItem("numberOfMovesSave", getNumberOfMoves());
     }
 
     if (e.target.classList.contains("sound")) {
@@ -46,6 +53,13 @@ function handleClickNavigation(matrix, transition, size) {
       let idAvailableCells = getIdAvailableCells(matrix);
       addClassAvailableCells(idAvailableCells);
       clickCell(matrix, transition);
+      grag(matrix, transition);
+
+      localStorage.setItem(
+        "numberOfMoves",
+        JSON.parse(localStorage.getItem("numberOfMovesSave"))
+      );
+      renderMoves(getNumberOfMoves());
     }
   };
 }

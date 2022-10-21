@@ -9,6 +9,11 @@ import getIdAvailableCells from "../helpers/getIdAvailableCells";
 import addClassAvailableCells from "../components/addClassAvailableCells";
 import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import switchAnimationAvailable from "../helpers/switchAnimationAvailable";
+import renderMoves from "../helpers/renderMoves";
+import addOneMove from "../helpers/addOneMove";
+import getNumberOfMoves from "../helpers/getNumberOfMoves";
+import innerHandleClickCell from "./innerHandleClickCell";
+import grag from "../listeners/grag";
 
 function handleClickCell(
   matrix,
@@ -22,6 +27,14 @@ function handleClickCell(
 
     if (!getAnimationAvailable()) return;
 
+    // innerHandleClickCell(
+    //   matrix,
+    //   transition,
+    //   idAvailableCells,
+    //   myAudio,
+    //   transitionNumber,
+    //   id
+    // );
     if (idAvailableCells.indexOf(id) === 0) {
       switchAnimationAvailable();
 
@@ -38,6 +51,10 @@ function handleClickCell(
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
+
+        addOneMove();
+        renderMoves(getNumberOfMoves());
+        grag(matrix, transition);
 
         switchAnimationAvailable();
       }, transitionNumber * 1000);
@@ -60,6 +77,10 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
+        addOneMove();
+        renderMoves(getNumberOfMoves());
+        grag(matrix, transition);
+
         switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
@@ -81,6 +102,10 @@ function handleClickCell(
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
 
+        addOneMove();
+        renderMoves(getNumberOfMoves());
+        grag(matrix, transition);
+
         switchAnimationAvailable();
       }, transitionNumber * 1000);
     }
@@ -101,6 +126,10 @@ function handleClickCell(
         idAvailableCells = getIdAvailableCells(matrix);
         renderMatrix(matrix);
         addClassAvailableCells(idAvailableCells);
+
+        addOneMove();
+        renderMoves(getNumberOfMoves());
+        grag(matrix, transition);
 
         switchAnimationAvailable();
       }, transitionNumber * 1000);

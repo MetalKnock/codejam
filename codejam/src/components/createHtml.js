@@ -1,10 +1,16 @@
 import createContainer from "./createContainer";
-import createHtmlTag from "./createHtmlTag";
+import createHtmlTag from "../helpers/createHtmlTag";
 import renderMatrix from "./renderMatrix";
+import renderMoves from "../helpers/renderMoves";
+import getNumberOfMoves from "../helpers/getNumberOfMoves";
 
 function createHtml(matrix) {
   createContainer();
+
   createHtmlTag("nav", "navigation", "container");
+
+  createHtmlTag("div", "moves", "navigation");
+  renderMoves(getNumberOfMoves());
 
   createHtmlTag("button", "navigation__button restart", "navigation");
   const restart = document.querySelector(".restart");
@@ -19,6 +25,10 @@ function createHtml(matrix) {
   createHtmlTag("button", "navigation__button load", "navigation");
   const load = document.querySelector(".load");
   load.innerHTML = "load";
+
+  createHtmlTag("button", "navigation__button result", "navigation");
+  const result = document.querySelector(".result");
+  result.innerHTML = "result";
 
   createHtmlTag("div", "field", "container");
   createHtmlTag("ul", "field__list", "field");

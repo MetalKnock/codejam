@@ -1,5 +1,5 @@
 import convertMatrixInOneDimensionalArray from "../helpers/convertMatrixInOneDimensionalArray";
-import createHtmlTag from "./createHtmlTag";
+import createHtmlTag from "../helpers/createHtmlTag";
 
 function renderMatrix(matrix) {
   const field = document.querySelector(".field__list");
