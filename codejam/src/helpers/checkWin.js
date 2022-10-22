@@ -15,7 +15,7 @@ function checkWin(matrix) {
   for (let i = 0; i < matrixInArray.length; i++) {
     if (matrixInArray[i] !== winningMatrix[i]) result = false;
   }
-  // result = true; //УДАЛИ!!!!!!!!!!!!!!!!!!!!!
+
   if (result) {
     const youWin = document.querySelector(".you-win");
     const timer = document.querySelector(".timer");

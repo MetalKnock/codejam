@@ -58,7 +58,7 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         clickNavigation(matrix, transition, size, myAudio);
         clickSizeMenu(size, matrix, transition, myAudio);
         grag(matrix, transition, myAudio);
-        resizeWindow(size);
+        // resizeWindow(size);
         curtain.style.display = "none";
       }, 1000);
     }

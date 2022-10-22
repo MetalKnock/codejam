@@ -9,6 +9,7 @@ import getNumberOfMovesSave from "../helpers/getNumberOfMovesSave";
 import getSolvableMatrix from "../helpers/getSolvableMatrix";
 import removeAllEventListeners from "../helpers/removeAllEventListeners";
 import renderMoves from "../helpers/renderMoves";
+import renderResults from "../helpers/renderResults";
 import zeroingNumberOfMoves from "../helpers/zeroingNumberOfMoves";
 import { clickCell } from "./clickCell";
 import { clickNavigation } from "./clickNavigation";
@@ -79,8 +80,7 @@ function handleClickNavigation(matrix, transition, size, myAudio) {
       resizeWindow(size);
     }
     if (e.target.classList.contains("result")) {
-      const resultList = document.querySelector(".field__result-list");
-      resultList.style.display = "block";
+      renderResults();
     }
   };
 }

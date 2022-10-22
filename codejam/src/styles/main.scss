@@ -103,7 +103,7 @@
   &__right {
   }
 }
-.result-list {
+.resultl {
   display: none;
   position: absolute;
   left: 0;
@@ -111,9 +111,24 @@
   width: 100%;
   height: 100%;
   background: green;
+  justify-content: space-around;
   &__list {
-    display: flex;
-    flex-direction: column;
+    &-date {
+      display: flex;
+      flex-direction: column;
+    }
+    &-size {
+      display: flex;
+      flex-direction: column;
+    }
+    &-moves {
+      display: flex;
+      flex-direction: column;
+    }
+    &-time {
+      display: flex;
+      flex-direction: column;
+    }
   }
   &__item {
   }
@@ -134,8 +149,6 @@
     font-size: 40px;
     text-align: center;
     max-width: 250px;
-  }
-  &__button-new-game {
   }
 }
 
