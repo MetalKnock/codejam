@@ -2,15 +2,14 @@ import addClassAvailableCells from "../components/addClassAvailableCells";
 import renderMatrix from "../components/renderMatrix";
 import convertArrayInMatrix from "../helpers/convertArrayInMatrix";
 import convertMatrixInOneDimensionalArray from "../helpers/convertMatrixInOneDimensionalArray";
-import deleteClickCell from "../helpers/deleteClickCell";
 import getIdAvailableCells from "../helpers/getIdAvailableCells";
-import clickCell from "./clickCell";
-import myAudioResource from "../assets/usb-slide-back-106529.mp3";
 import addOneMove from "../helpers/addOneMove";
 import renderMoves from "../helpers/renderMoves";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
+import { clickCell, removeClickCell } from "./clickCell";
+import checkWin from "../helpers/checkWin";
 
-function grag(matrix, transition) {
+function grag(matrix, transition, myAudio) {
   const cellsAvailable = document.querySelectorAll(".cell--available");
   const cellActive = document.querySelector(".cell--active");
   const field = document.querySelector(".field__list");
@@ -42,16 +41,17 @@ function grag(matrix, transition) {
     matrixInArray[indexZero] = memoryMatrix;
     matrix = convertArrayInMatrix(matrixInArray);
 
-    deleteClickCell();
+    removeClickCell();
     renderMatrix(matrix);
     const IdAvailableCells = getIdAvailableCells(matrix);
     addClassAvailableCells(IdAvailableCells);
-    clickCell(matrix, transition);
-    const myAudio = new Audio(myAudioResource);
+    clickCell(matrix, transition, myAudio);
+
     if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
     addOneMove();
     renderMoves(getNumberOfMoves());
-    grag(matrix, transition);
+    checkWin(matrix);
+    grag(matrix, transition, myAudio);
   }
 }
 export default grag;

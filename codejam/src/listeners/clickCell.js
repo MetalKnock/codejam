@@ -1,16 +1,20 @@
 import getIdAvailableCells from "../helpers/getIdAvailableCells";
 import addClassAvailableCells from "../components/addClassAvailableCells";
-import myAudioResource from "../assets/usb-slide-back-106529.mp3";
-import handleClickCell from "../components/handleClickCell";
+import handleClickCell from "./handleClickCell";
 
-function clickCell(matrix, transition) {
+let clickCellListener = new AbortController();
+
+function clickCell(matrix, transition, myAudio) {
+  if (clickCellListener.signal.aborted) {
+    clickCellListener = new AbortController();
+  }
+
   const cells = document.querySelector(".field__list");
 
   let idAvailableCells = getIdAvailableCells(matrix);
 
   addClassAvailableCells(idAvailableCells);
   const transitionNumber = transition.slice(0, -1);
-  const myAudio = new Audio(myAudioResource);
 
   cells.addEventListener(
     "click",
@@ -20,7 +24,12 @@ function clickCell(matrix, transition) {
       idAvailableCells,
       myAudio,
       transitionNumber
-    )
+    ),
+    clickCellListener
   );
 }
-export default clickCell;
+
+function removeClickCell() {
+  clickCellListener.abort();
+}
+export { clickCell, removeClickCell };
