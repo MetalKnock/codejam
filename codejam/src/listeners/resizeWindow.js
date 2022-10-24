@@ -6,11 +6,11 @@ function resizeWindow(size) {
   if (resizeWindowListener.signal.aborted) {
     resizeWindowListener = new AbortController();
   }
-  window.addEventListener(
-    "resize",
-    handleResizeWindow(size),
-    resizeWindowListener
-  );
+  // window.addEventListener(
+  //   "resize",
+  //   handleResizeWindow(size),
+  //   resizeWindowListener
+  // );
 }
 
 function handleResizeWindow(size) {

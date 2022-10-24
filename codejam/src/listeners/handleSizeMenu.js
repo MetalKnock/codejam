@@ -19,7 +19,7 @@ function handleSizeMenu(size, matrix, transition, myAudio) {
     if (!getAnimationAvailable()) return;
 
     for (let i = 3; i <= 8; i++) {
-      if (e.target.classList.contains(`size${i}x${i}`)) {
+      if (e.target.parentElement.classList.contains(`size${i}x${i}`)) {
         removeAllEventListeners();
 
         size = i;
@@ -30,6 +30,7 @@ function handleSizeMenu(size, matrix, transition, myAudio) {
         renderTimer(0);
 
         matrix = getSolvableMatrix(size);
+
         renderMatrix(matrix);
         setWidthField(size);
         clickCell(matrix, transition, myAudio);

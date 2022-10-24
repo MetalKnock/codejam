@@ -2,18 +2,18 @@ import handleClickNewGameYouWin from "./handleClickNewGameYouWin";
 
 let clickNewGameYouWinListener = new AbortController();
 
-function clickNewGameYouWin(matrix, size, transition, myAudio) {
+function clickNewGameYouWin(matrix, transition, myAudio) {
   if (clickNewGameYouWinListener.signal.aborted) {
     clickNewGameYouWinListener = new AbortController();
   }
-  const newGameYouWin = document.querySelector(".you-win__button-new-game");
+  const newGameYouWin = document.querySelector(".you-win__button");
   newGameYouWin.addEventListener(
     "click",
-    handleClickNewGameYouWin(matrix, size, transition, myAudio),
+    handleClickNewGameYouWin(matrix, transition, myAudio),
     clickNewGameYouWinListener
   );
 }
-function removeclickNewGameYouWin() {
+function removeClickNewGameYouWin() {
   clickNewGameYouWinListener.abort();
 }
-export { clickNewGameYouWin, removeclickNewGameYouWin };
+export { clickNewGameYouWin, removeClickNewGameYouWin };

@@ -8,6 +8,10 @@ import renderMoves from "../helpers/renderMoves";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
 import { clickCell, removeClickCell } from "./clickCell";
 import checkWin from "../helpers/checkWin";
+import removeAllEventListeners from "../helpers/removeAllEventListeners";
+import { clickBurgerMenu } from "./clickBurgerMenu";
+import { clickNavigation } from "./clickNavigation";
+import { clickSizeMenu } from "./clickSizeMenu";
 
 function grag(matrix, transition, myAudio) {
   const cellsAvailable = document.querySelectorAll(".cell--available");
@@ -41,16 +45,22 @@ function grag(matrix, transition, myAudio) {
     matrixInArray[indexZero] = memoryMatrix;
     matrix = convertArrayInMatrix(matrixInArray);
 
-    removeClickCell();
+    removeAllEventListeners();
+
     renderMatrix(matrix);
     const IdAvailableCells = getIdAvailableCells(matrix);
     addClassAvailableCells(IdAvailableCells);
     clickCell(matrix, transition, myAudio);
+    let size = matrix.length;
+    clickNavigation(matrix, transition, size, myAudio);
+    clickBurgerMenu(matrix, transition, size, myAudio);
+    clickSizeMenu(size, matrix, transition, myAudio);
 
     if (JSON.parse(localStorage.getItem("sound"))) myAudio.play();
     addOneMove();
     renderMoves(getNumberOfMoves());
-    checkWin(matrix);
+    checkWin(matrix, transition, myAudio);
+
     grag(matrix, transition, myAudio);
   }
 }

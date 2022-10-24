@@ -14,6 +14,11 @@ import addOneMove from "../helpers/addOneMove";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
 import grag from "./grag";
 import checkWin from "../helpers/checkWin";
+import removeAllEventListeners from "../helpers/removeAllEventListeners";
+import { clickCell } from "./clickCell";
+import { clickSizeMenu } from "./clickSizeMenu";
+import { clickBurgerMenu } from "./clickBurgerMenu";
+import { clickNavigation } from "./clickNavigation";
 
 function handleClickCell(
   matrix,
@@ -44,6 +49,7 @@ function handleClickCell(
           direction = "left";
         }
 
+        removeAllEventListeners();
         switchAnimationAvailable();
 
         cellAnimation(id, direction, transition);
@@ -59,12 +65,18 @@ function handleClickCell(
           idAvailableCells = getIdAvailableCells(matrix);
           renderMatrix(matrix);
 
+          let size = matrix.length;
+          clickSizeMenu(size, matrix, transition, myAudio);
+          clickBurgerMenu(matrix, transition, size, myAudio);
+          clickNavigation(matrix, transition, size, myAudio);
+          clickCell(matrix, transition, myAudio);
+
           addClassAvailableCells(idAvailableCells);
 
           addOneMove();
           renderMoves(getNumberOfMoves());
           grag(matrix, transition, myAudio);
-          checkWin(matrix);
+          checkWin(matrix, transition, myAudio);
           switchAnimationAvailable();
         }, transitionNumber * 1000);
       }

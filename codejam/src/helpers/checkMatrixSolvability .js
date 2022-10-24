@@ -7,11 +7,11 @@ function checkMatrixSolvability(matrix) {
   //     [1, 2, 3, 4],
   //     [15, 14, 13, 0],
   //   ];
-  //   let matrix2 = [
-  //     [4, 6, 5],
-  //     [3, 8, 7],
-  //     [1, 2, 0],
-  //   ];
+  // let matrix2 = [
+  //   [5, 1, 4],
+  //   [3, 0, 6],
+  //   [7, 2, 8],
+  // ];
   const oddMatrixSize = matrix.length % 2 ? true : false;
 
   let matrixInArray = convertMatrixInOneDimensionalArray(matrix);
@@ -28,18 +28,15 @@ function checkMatrixSolvability(matrix) {
         j--;
       }
     } else {
-      sum += Math.floor(i / Math.sqrt(matrixInArray.length)) + 1;
+      if (!oddMatrixSize) {
+        sum += Math.floor(i / Math.sqrt(matrixInArray.length)) + 1;
+      }
     }
   }
-  if (oddMatrixSize) {
-    if (sum % 2 !== 0) {
-      return true;
-    }
-    return false;
+
+  if (sum % 2 === 0) {
+    return true;
   } else {
-    if (sum % 2 === 0) {
-      return true;
-    }
     return false;
   }
 }

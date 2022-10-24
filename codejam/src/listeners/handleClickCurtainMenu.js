@@ -1,13 +1,16 @@
 import renderMatrix from "../components/renderMatrix";
 import renderTimer from "../components/renderTimer";
 import setWidthField from "../components/setWidthField";
+import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import getIdSetInterval from "../helpers/getIdSetInterval";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
 import getNumberOfMovesSave from "../helpers/getNumberOfMovesSave";
 import getSolvableMatrix from "../helpers/getSolvableMatrix";
 import removeAllEventListeners from "../helpers/removeAllEventListeners";
 import renderMoves from "../helpers/renderMoves";
+import switchAnimationAvailable from "../helpers/switchAnimationAvailable";
 import zeroingNumberOfMoves from "../helpers/zeroingNumberOfMoves";
+import { clickBurgerMenu } from "./clickBurgerMenu";
 import { clickCell } from "./clickCell";
 import { clickNavigation } from "./clickNavigation";
 import { clickSizeMenu } from "./clickSizeMenu";
@@ -17,7 +20,15 @@ import { resizeWindow } from "./resizeWindow";
 function handleClickCurtainMenu(matrix, size, transition, myAudio) {
   return function curriedFunc(e) {
     const curtain = document.querySelector(".curtain");
-    if (e.target.classList.contains("curtain__new-game")) {
+    const buttonNewGame = document.querySelector(".curtain__new-game");
+    const buttonContinue = document.querySelector(".curtain__continue");
+    if (e.target.parentElement.classList.contains("curtain__new-game")) {
+      if (!getAnimationAvailable()) return;
+      switchAnimationAvailable();
+
+      buttonNewGame.style.opacity = 0;
+      buttonContinue.style.opacity = 0;
+
       setTimeout(() => {
         removeAllEventListeners();
 
@@ -30,17 +41,25 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         renderMatrix(matrix);
         setWidthField(size);
         clickCell(matrix, transition, myAudio);
+        grag(matrix, transition, myAudio);
         clickNavigation(matrix, transition, size, myAudio);
         clickSizeMenu(size, matrix, transition, myAudio);
-        grag(matrix, transition, myAudio);
+        clickBurgerMenu(matrix, transition, size, myAudio);
         resizeWindow(size);
+        switchAnimationAvailable();
         curtain.style.display = "none";
       }, 1000);
     }
-    if (e.target.classList.contains("curtain__continue")) {
+    if (e.target.parentElement.classList.contains("curtain__continue")) {
       if (localStorage.getItem("atLeastOneSave") === null) {
         return;
       }
+      if (!getAnimationAvailable()) return;
+      switchAnimationAvailable();
+
+      buttonNewGame.style.opacity = 0;
+      buttonContinue.style.opacity = 0;
+
       setTimeout(() => {
         removeAllEventListeners();
 
@@ -55,10 +74,12 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         renderMatrix(matrix);
         setWidthField(size);
         clickCell(matrix, transition, myAudio);
+        grag(matrix, transition, myAudio);
         clickNavigation(matrix, transition, size, myAudio);
         clickSizeMenu(size, matrix, transition, myAudio);
-        grag(matrix, transition, myAudio);
+        clickBurgerMenu(matrix, transition, size, myAudio);
         // resizeWindow(size);
+        switchAnimationAvailable();
         curtain.style.display = "none";
       }, 1000);
     }

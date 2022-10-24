@@ -2,19 +2,14 @@ import "./styles/main.scss";
 import createHtml from "./components/createHtml";
 import getSolvableMatrix from "./helpers/getSolvableMatrix";
 import zeroingNumberOfMoves from "./helpers/zeroingNumberOfMoves";
-import grag from "./listeners/grag";
 import myAudioResource from "./assets/usb-slide-back-106529.mp3";
 import setWidthField from "./components/setWidthField";
-import { clickCell } from "./listeners/clickCell";
-import { clickSizeMenu } from "./listeners/clickSizeMenu";
-import { clickNavigation } from "./listeners/clickNavigation";
 import { resizeWindow } from "./listeners/resizeWindow";
 import { clickCurtainMenu } from "./listeners/clickCurtainMenu";
 import checkWin from "./helpers/checkWin";
-import { clickNewGameYouWin } from "./listeners/clickNewGameYouWin";
+import { hoverButtonsSoundPlay } from "./listeners/hoverButtonsSoundPlay";
 
 let size = 4;
-
 let matrix = getSolvableMatrix(size);
 let sound = true;
 const myAudio = new Audio(myAudioResource);
@@ -30,5 +25,14 @@ clickCurtainMenu(matrix, size, transition, myAudio);
 
 resizeWindow(size);
 
-checkWin(matrix);
-clickNewGameYouWin(matrix, size, transition, myAudio);
+checkWin(matrix, transition, myAudio);
+
+let listener = new AbortController();
+window.addEventListener(
+  "click",
+  () => {
+    hoverButtonsSoundPlay();
+    listener.abort();
+  },
+  listener
+);
