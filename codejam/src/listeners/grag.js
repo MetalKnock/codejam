@@ -12,6 +12,7 @@ import removeAllEventListeners from "../helpers/removeAllEventListeners";
 import { clickBurgerMenu } from "./clickBurgerMenu";
 import { clickNavigation } from "./clickNavigation";
 import { clickSizeMenu } from "./clickSizeMenu";
+import getAnimationAvailable from "../helpers/getAnimationAvailable";
 
 function grag(matrix, transition, myAudio) {
   const cellsAvailable = document.querySelectorAll(".cell--available");
@@ -29,10 +30,12 @@ function grag(matrix, transition, myAudio) {
   }
 
   function drag(e) {
+    if(!getAnimationAvailable()) return;
     e.dataTransfer.setData("id", e.target.id);
   }
 
   function drop(e) {
+    if(!getAnimationAvailable()) return;
     let itemId = e.dataTransfer.getData("id");
 
     const matrixInArray = convertMatrixInOneDimensionalArray(matrix);
