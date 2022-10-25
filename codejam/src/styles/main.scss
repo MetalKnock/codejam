@@ -442,13 +442,13 @@
     font-size: 7px;
   }
   .btn-right {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat 12px -135px;
+    background: url("../assets/button-sprite.png") no-repeat 12px -135px;
     height: 40px;
 
     background-size: 82%;
   }
   .btn-left {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat -3px -91px;
+    background: url("../assets/button-sprite.png") no-repeat -3px -91px;
     height: 40px;
 
     background-size: 82%;
@@ -472,12 +472,12 @@
   }
 
   .btn-right {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat 29px -75px;
+    background: url("../assets/button-sprite.png") no-repeat 29px -75px;
     height: 24px;
     background-size: 46%;
   }
   .btn-left {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat -1px -50px;
+    background: url("../assets/button-sprite.png") no-repeat -1px -50px;
     height: 24px;
     background-size: 46%;
   }
@@ -485,7 +485,7 @@
     height: 24px;
   }
   .btn-middle {
-    background: url(http://localhost:3000/button-sprite.png) repeat-x 0px -6px;
+    background: url("../assets/button-sprite.png") repeat-x 0px -6px;
     height: 24px;
     padding: 7px 6vw;
     font-size: 10px;
@@ -513,13 +513,13 @@
 
 @media (max-height: 607px) {
   .btn-right {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat 12px -135px;
+    background: url("../assets/button-sprite.png") no-repeat 12px -135px;
     height: 40px;
 
     background-size: 82%;
   }
   .btn-left {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat -3px -91px;
+    background: url("../assets/button-sprite.png") no-repeat -3px -91px;
     height: 40px;
 
     background-size: 82%;
@@ -592,12 +592,12 @@
   }
 
   .btn-right {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat 29px -75px;
+    background: url("../assets/button-sprite.png") no-repeat 29px -75px;
     height: 24px;
     background-size: 46%;
   }
   .btn-left {
-    background: url(http://localhost:3000/button-sprite.png) no-repeat -1px -50px;
+    background: url("../assets/button-sprite.png") no-repeat -1px -50px;
     height: 24px;
     background-size: 46%;
   }
@@ -605,7 +605,7 @@
     height: 24px;
   }
   .btn-middle {
-    background: url(http://localhost:3000/button-sprite.png) repeat-x 0px -6px;
+    background: url("../assets/button-sprite.png") repeat-x 0px -6px;
     height: 24px;
     padding: 7px 3vw;
     font-size: 10px;
