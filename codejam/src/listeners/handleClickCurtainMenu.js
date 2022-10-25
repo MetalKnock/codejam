@@ -54,6 +54,7 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         document.querySelector(".sound").style.cursor = "pointer";
         buttonEnabled("load");
         buttonEnabled("result");
+        buttonEnabled("burger-menu");
         for (let i = 3; i <= 8; i++) {
           buttonEnabled(`size-menu--size${i}x${i}`);
         }
@@ -91,6 +92,17 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         clickBurgerMenu(matrix, transition, size, myAudio);
         // resizeWindow(size);
         switchAnimationAvailable();
+
+        buttonEnabled("restart");
+        buttonEnabled("save");
+        document.querySelector(".sound").style.cursor = "pointer";
+        buttonEnabled("load");
+        buttonEnabled("result");
+        buttonEnabled("burger-menu");
+        for (let i = 3; i <= 8; i++) {
+          buttonEnabled(`size-menu--size${i}x${i}`);
+        }
+
         curtain.style.display = "none";
       }, 1000);
     }

@@ -273,13 +273,14 @@
     color: $text-color;
     position: relative;
     z-index: 2;
-    font-size: 40px;
+    font-size: 20px;
     text-align: center;
   }
   &__image {
     position: relative;
     z-index: 2;
-    width: 200px;
+    width: min(20vw, 20vh);
+    max-width: 150px;
   }
 }
 
@@ -357,9 +358,11 @@
     gap: 5px;
   }
   .field__list {
-    height: min(80vw, 55vh);
-    width: min(80vw, 55vh);
+    height: min(80vw, 63vh);
+    width: min(80vw, 63vh);
+    grid-gap: 3px;
   }
+
   .navigation {
     gap: 5px;
   }
@@ -496,6 +499,11 @@
     font-size: 10px;
   }
 }
+@media (max-width: 330px) {
+  .you-win__text {
+    font-size: 10px;
+  }
+}
 
 @media (max-height: 709px) {
   .resultl__title {
@@ -559,6 +567,11 @@
   .container {
     justify-content: start;
     gap: 5px;
+  }
+}
+@media (max-height: 560px) {
+  .you-win__text {
+    font-size: 10px;
   }
 }
 @media (max-height: 574px) {

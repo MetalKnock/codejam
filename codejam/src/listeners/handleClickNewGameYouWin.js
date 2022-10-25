@@ -1,6 +1,7 @@
 import renderMatrix from "../components/renderMatrix";
 import renderTimer from "../components/renderTimer";
 import setWidthField from "../components/setWidthField";
+import buttonEnabled from "../helpers/buttonEnabled";
 import getIdSetInterval from "../helpers/getIdSetInterval";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
 import getSolvableMatrix from "../helpers/getSolvableMatrix";
@@ -8,6 +9,7 @@ import removeAllEventListeners from "../helpers/removeAllEventListeners";
 import renderMoves from "../helpers/renderMoves";
 import switchAnimationAvailable from "../helpers/switchAnimationAvailable";
 import zeroingNumberOfMoves from "../helpers/zeroingNumberOfMoves";
+import { clickBurgerMenu } from "./clickBurgerMenu";
 import { clickCell } from "./clickCell";
 import { clickNavigation } from "./clickNavigation";
 import { removeClickNewGameYouWin } from "./clickNewGameYouWin";
@@ -41,11 +43,22 @@ function handleClickNewGameYouWin(matrix, transition, myAudio) {
       clickCell(matrix, transition, myAudio);
       clickNavigation(matrix, transition, size, myAudio);
       clickSizeMenu(size, matrix, transition, myAudio);
+      clickBurgerMenu(matrix, transition, size, myAudio);
       grag(matrix, transition, myAudio);
       resizeWindow(size);
       switchAnimationAvailable();
       curtain.style.display = "none";
       youWin.style.display = "none";
+
+      buttonEnabled("restart");
+      buttonEnabled("save");
+      document.querySelector(".sound").style.cursor = "pointer";
+      buttonEnabled("load");
+      buttonEnabled("result");
+      buttonEnabled("burger-menu");
+      for (let i = 3; i <= 8; i++) {
+        buttonEnabled(`size-menu--size${i}x${i}`);
+      }
     }, 1000);
   };
 }

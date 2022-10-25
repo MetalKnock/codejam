@@ -5,6 +5,7 @@ import getIdSetInterval from "./getIdSetInterval";
 import getNumberOfMoves from "./getNumberOfMoves";
 import removeAllEventListeners from "./removeAllEventListeners";
 import winSound1 from "../assets/win-sound.mp3";
+import buttonDisabled from "./buttonDisabled";
 
 function checkWin(matrix, transition, myAudio) {
   const matrixInArray = convertMatrixInOneDimensionalArray(matrix);
@@ -21,9 +22,29 @@ function checkWin(matrix, transition, myAudio) {
   }
   // result = true;
   if (result) {
+    buttonDisabled("restart");
+    buttonDisabled("save");
+    document.querySelector(".sound").style.cursor = "not-allowed";
+    buttonDisabled("load");
+    buttonDisabled("result");
+    buttonDisabled("burger-menu");
+    for (let i = 3; i <= 8; i++) {
+      buttonDisabled(`size-menu--size${i}x${i}`);
+    }
+
     const winSound = new Audio(winSound1);
     winSound.volume = 0.2;
-    if (JSON.parse(localStorage.getItem("sound"))) winSound.play();
+    let listener = new AbortController();
+    if (JSON.parse(localStorage.getItem("sound"))) {
+      window.addEventListener(
+        "mouseover",
+        () => {
+          winSound.play();
+          listener.abort();
+        },
+        listener
+      );
+    }
     clearInterval(getIdSetInterval());
     removeAllEventListeners();
     clickNewGameYouWin(matrix, transition, myAudio);

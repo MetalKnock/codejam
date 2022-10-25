@@ -98,6 +98,7 @@ function createHtml(matrix) {
   document.querySelector(".sound").style.cursor = "not-allowed";
   buttonDisabled("load");
   buttonDisabled("result");
+  buttonDisabled("burger-menu");
   for (let i = 3; i <= 8; i++) {
     buttonDisabled(`size-menu--size${i}x${i}`);
   }

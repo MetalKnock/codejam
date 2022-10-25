@@ -1,6 +1,7 @@
 import renderMatrix from "../components/renderMatrix";
 import renderTimer from "../components/renderTimer";
 import setWidthField from "../components/setWidthField";
+import buttonEnabled from "../helpers/buttonEnabled";
 import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import getCurrentTimeFromTimer from "../helpers/getCurrentTimeFromTimer";
 import getIdSetInterval from "../helpers/getIdSetInterval";
@@ -23,7 +24,6 @@ function handleClickBurgerMenuButton(matrix, transition, size, myAudio) {
     if (!getAnimationAvailable()) return;
 
     if (e.target.parentElement.classList.contains("restart")) {
-      console.log(1);
       removeAllEventListeners();
 
       matrix = getSolvableMatrix(size);
@@ -40,11 +40,11 @@ function handleClickBurgerMenuButton(matrix, transition, size, myAudio) {
       clickSizeMenu(size, matrix, transition, myAudio);
       grag(matrix, transition, myAudio);
       resizeWindow(size);
+
       document.querySelector(".field__menu").style.display = "none";
     }
 
     if (e.target.parentElement.classList.contains("save")) {
-      console.log(matrix);
       removeClickBurgerMenu();
       localStorage.setItem("matrix", JSON.stringify(matrix));
       localStorage.setItem("numberOfMovesSave", getNumberOfMoves());
