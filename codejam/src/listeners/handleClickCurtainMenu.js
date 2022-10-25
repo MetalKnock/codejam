@@ -1,6 +1,7 @@
 import renderMatrix from "../components/renderMatrix";
 import renderTimer from "../components/renderTimer";
 import setWidthField from "../components/setWidthField";
+import buttonEnabled from "../helpers/buttonEnabled";
 import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import getIdSetInterval from "../helpers/getIdSetInterval";
 import getNumberOfMoves from "../helpers/getNumberOfMoves";
@@ -47,6 +48,16 @@ function handleClickCurtainMenu(matrix, size, transition, myAudio) {
         clickBurgerMenu(matrix, transition, size, myAudio);
         resizeWindow(size);
         switchAnimationAvailable();
+
+        buttonEnabled("restart");
+        buttonEnabled("save");
+        document.querySelector(".sound").style.cursor = "pointer";
+        buttonEnabled("load");
+        buttonEnabled("result");
+        for (let i = 3; i <= 8; i++) {
+          buttonEnabled(`size-menu--size${i}x${i}`);
+        }
+
         curtain.style.display = "none";
       }, 1000);
     }

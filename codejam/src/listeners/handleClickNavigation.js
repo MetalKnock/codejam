@@ -1,6 +1,7 @@
 import renderMatrix from "../components/renderMatrix";
 import renderTimer from "../components/renderTimer";
 import setWidthField from "../components/setWidthField";
+import buttonDisabled from "../helpers/buttonDisabled";
 import getAnimationAvailable from "../helpers/getAnimationAvailable";
 import getCurrentTimeFromTimer from "../helpers/getCurrentTimeFromTimer";
 import getIdSetInterval from "../helpers/getIdSetInterval";
@@ -89,6 +90,14 @@ function handleClickNavigation(matrix, transition, size, myAudio) {
       resizeWindow(size);
     }
     if (e.target.parentElement.classList.contains("result")) {
+      buttonDisabled("restart");
+      buttonDisabled("save");
+      document.querySelector(".sound").style.cursor = "not-allowed";
+      buttonDisabled("load");
+      buttonDisabled("result");
+      for (let i = 3; i <= 8; i++) {
+        buttonDisabled(`size-menu--size${i}x${i}`);
+      }
       renderResults(matrix, size, transition, myAudio);
     }
   };

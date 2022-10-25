@@ -23,7 +23,7 @@ function createCurtain() {
 
   if (localStorage.getItem("atLeastOneSave") === null) {
     continueGameMiddle.disabled = true;
-    continueGameMiddle.innerHTML = "CONTINUE (Click on save during the game)";
+    continueGameMiddle.innerHTML = "CONTINUE`";
     continueGameMiddle.style.color = "grey";
     continueGameMiddle.style.cursor = "not-allowed";
     continueGameLeft.style.cursor = "not-allowed";

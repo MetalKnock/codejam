@@ -1,4 +1,5 @@
 import renderTimer from "../components/renderTimer";
+import buttonEnabled from "../helpers/buttonEnabled";
 import getCurrentTimeFromTimer from "../helpers/getCurrentTimeFromTimer";
 import switchAnimationAvailable from "../helpers/switchAnimationAvailable";
 import { clickBurgerMenu } from "./clickBurgerMenu";
@@ -34,6 +35,14 @@ function handleClickCloseResult(matrix, size, transition, myAudio) {
       document.querySelector(".resultl__table-size").innerHTML = "";
       document.querySelector(".resultl__table-moves").innerHTML = "";
       document.querySelector(".resultl__table-time").innerHTML = "";
+      buttonEnabled("restart");
+      buttonEnabled("save");
+      document.querySelector(".sound").style.cursor = "pointer";
+      buttonEnabled("load");
+      buttonEnabled("result");
+      for (let i = 3; i <= 8; i++) {
+        buttonEnabled(`size-menu--size${i}x${i}`);
+      }
       resultList.style.display = "none";
     }, 1000);
   };

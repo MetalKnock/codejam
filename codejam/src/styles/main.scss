@@ -396,7 +396,7 @@
   }
   .container {
     justify-content: start;
-    gap: 40px;
+    gap: 5px;
   }
   .menu__button {
     &.restart,
@@ -411,6 +411,7 @@
     &__size-menu {
       display: flex;
       padding: 0px;
+      gap: 0px;
     }
   }
   .btn-middle {
@@ -418,11 +419,51 @@
   }
   .menu__button--sound {
     z-index: 10;
-    top: 14px;
+    top: 5%;
     left: 50%;
     transform: translateX(-50%);
-    width: 6vw;
+    width: min(6vw, 6vh);
     background-repeat: no-repeat;
+  }
+  .time-wrapper {
+    bottom: -15px;
+    right: -50px;
+  }
+  .moves-wrapper {
+    bottom: -15px;
+    left: -50px;
+  }
+  .field__list {
+    height: min(80vw, 63vh);
+    width: min(80vw, 63vh);
+  }
+}
+@media (max-width: 620px) {
+  .menu {
+    &__size-menu {
+      gap: 5px;
+    }
+  }
+}
+@media (max-width: 470px) {
+  .btn-right {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat 12px -135px;
+    height: 40px;
+
+    background-size: 82%;
+  }
+  .btn-left {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat -3px -91px;
+    height: 40px;
+
+    background-size: 82%;
+  }
+  .btn {
+    height: 40px;
+  }
+  .btn-middle {
+    height: 40px;
+    padding: 12px 6vw;
   }
 }
 @media (max-width: 400px) {
@@ -434,6 +475,26 @@
     gap: 0;
     padding: 16% 6% 5% 7%;
   }
+
+  .btn-right {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat 29px -75px;
+    height: 24px;
+    background-size: 46%;
+  }
+  .btn-left {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat -1px -50px;
+    height: 24px;
+    background-size: 46%;
+  }
+  .btn {
+    height: 24px;
+  }
+  .btn-middle {
+    background: url(http://localhost:3000/button-sprite.png) repeat-x 0px -6px;
+    height: 24px;
+    padding: 7px 6vw;
+    font-size: 10px;
+  }
 }
 
 @media (max-height: 709px) {
@@ -444,55 +505,113 @@
   .resultl__table {
     font-size: 12px;
   }
+
+  .menu__size-menu {
+    padding: 0;
+  }
+}
+
+@media (max-height: 607px) {
+  .btn-right {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat 12px -135px;
+    height: 40px;
+
+    background-size: 82%;
+  }
+  .btn-left {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat -3px -91px;
+    height: 40px;
+
+    background-size: 82%;
+  }
+  .btn {
+    height: 40px;
+  }
+  .btn-middle {
+    height: 40px;
+    padding: 12px 5vw;
+  }
 }
 @media (max-height: 600px) {
   .burger-menu {
     display: block;
   }
-  .restart,
-  .save,
-  .sound,
-  .load,
-  .result {
-    display: none;
+  .navigation__button {
+    &.restart {
+      display: none;
+    }
+    &.save {
+      display: none;
+    }
+    &.sound {
+      display: none;
+    }
+    &.load {
+      display: none;
+    }
+    &.result {
+      display: none;
+    }
   }
   .size-menu {
     display: none;
   }
   .container {
     justify-content: start;
-    gap: 40px;
+    gap: 5px;
   }
 }
 @media (max-height: 574px) {
-  .list-date__item,
-  .list-size__item,
-  .list-moves__item,
-  .list-time__item {
-    &--5,
-    &--6,
-    &--7,
-    &--8,
-    &--9 {
-      display: none;
-    }
-  }
-  .size-menu {
-    gap: 5px;
-  }
-  .field__list {
-    height: min(80vw, 55vh);
-    width: min(80vw, 55vh);
-  }
-  .navigation {
-    gap: 5px;
-  }
   .resultl__title {
     padding-bottom: 5px;
     font-size: 10px;
   }
   .resultl__table {
     font-size: 12px;
+  }
+}
+
+@media (max-height: 531px) {
+  .btn-middle {
+    padding: 12px 4vw;
+  }
+}
+@media (max-height: 477px) {
+  .btn-middle {
+    padding: 16px 24px;
+  }
+  .curtain {
+    justify-content: space-around;
+    gap: 0;
+    padding: 16% 6% 5% 7%;
+  }
+
+  .btn-right {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat 29px -75px;
+    height: 24px;
+    background-size: 46%;
+  }
+  .btn-left {
+    background: url(http://localhost:3000/button-sprite.png) no-repeat -1px -50px;
+    height: 24px;
+    background-size: 46%;
+  }
+  .btn {
+    height: 24px;
+  }
+  .btn-middle {
+    background: url(http://localhost:3000/button-sprite.png) repeat-x 0px -6px;
+    height: 24px;
+    padding: 7px 3vw;
+    font-size: 10px;
+  }
+  .size-menu1 {
+    padding: 0;
+  }
+}
+@media (max-height: 370px) {
+  .btn-middle {
+    padding: 7px 2vw;
   }
 }
 

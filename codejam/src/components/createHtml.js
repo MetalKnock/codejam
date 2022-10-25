@@ -10,6 +10,7 @@ import createYouWin from "./createYouWin";
 import movesGif from "../assets/moves.gif";
 import timeGif from "../assets/time.gif";
 import createBurgerMenu from "./createBurgerMenu";
+import buttonDisabled from "../helpers/buttonDisabled";
 
 function createHtml(matrix) {
   createContainer();
@@ -64,7 +65,11 @@ function createHtml(matrix) {
 
   createHtmlTag("nav", "size-menu", "container");
   for (let i = 3; i <= 8; i++) {
-    createHtmlTag("button", `size-menu__button size${i}x${i} btn`, "size-menu");
+    createHtmlTag(
+      "button",
+      `size-menu--size${i}x${i} size-menu__button size${i}x${i} btn`,
+      "size-menu"
+    );
     createHtmlTag("div", `size${i}x${i}-left btn-left`, `size${i}x${i}`);
     createHtmlTag("div", `size${i}x${i}-right btn-right`, `size${i}x${i}`);
     createHtmlTag("div", `size${i}x${i}-middle btn-middle`, `size${i}x${i}`);
@@ -88,5 +93,13 @@ function createHtml(matrix) {
 
   const animationAvailable = document.querySelector(".animationAvailable");
   animationAvailable.dataset.animationAvailable = "true";
+  buttonDisabled("restart");
+  buttonDisabled("save");
+  document.querySelector(".sound").style.cursor = "not-allowed";
+  buttonDisabled("load");
+  buttonDisabled("result");
+  for (let i = 3; i <= 8; i++) {
+    buttonDisabled(`size-menu--size${i}x${i}`);
+  }
 }
 export default createHtml;
