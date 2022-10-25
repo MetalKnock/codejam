@@ -25,8 +25,6 @@
     width: 100%;
     font-size: 40px;
   }
-  &__curtain {
-  }
 }
 .cell {
   background-image: url(../assets/blood-scroll.png);
@@ -44,8 +42,6 @@
     &:hover {
       color: $text-color-hover;
       filter: drop-shadow(0 0 0.75rem $text-color-hover);
-    }
-    &:active {
     }
   }
 }
@@ -81,8 +77,6 @@
   margin: 0 auto;
   flex-wrap: wrap;
   padding: 0px 174px;
-  &__button {
-  }
 }
 .curtain {
   width: 100%;
@@ -102,8 +96,6 @@
   &__new-game {
     position: relative;
     z-index: 2;
-  }
-  &__background {
   }
 }
 .background {
@@ -194,30 +186,30 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      flex: 1 0 30%;
-      gap: 10px;
+      flex: 1 0 45%;
+      gap: 1px;
     }
     &-size {
       position: relative;
       z-index: 3;
       display: flex;
       flex-direction: column;
-      flex: 1 0 20%;
-      gap: 10px;
+      flex: 1 0 15%;
+      gap: 1px;
     }
     &-moves {
       position: relative;
       display: flex;
       flex-direction: column;
-      flex: 1 0 25%;
-      gap: 10px;
+      flex: 1 0 20%;
+      gap: 1px;
     }
     &-time {
       position: relative;
       display: flex;
       flex-direction: column;
-      flex: 1 0 25%;
-      gap: 10px;
+      flex: 1 0 20%;
+      gap: 1px;
     }
   }
   &__close {
@@ -233,16 +225,16 @@
   padding-bottom: 20px;
 
   &__date {
-    flex: 1 0 30%;
+    flex: 1 0 45%;
   }
   &__size {
-    flex: 1 0 20%;
+    flex: 1 0 15%;
   }
   &__moves {
-    flex: 1 0 25%;
+    flex: 1 0 20%;
   }
   &__time {
-    flex: 1 0 25%;
+    flex: 1 0 20%;
   }
 }
 .title__date,
@@ -296,8 +288,6 @@
     color: $text-color;
     font-size: 24px;
   }
-  &__background {
-  }
 }
 .updated-data {
   position: absolute;
@@ -306,6 +296,7 @@
   justify-content: space-between;
   width: 100%;
   left: 0;
+  z-index: -1;
 }
 .time-wrapper {
   position: relative;
@@ -319,8 +310,6 @@
     color: $text-color;
     font-size: 24px;
     width: 65px;
-  }
-  &__background {
   }
 }
 .burger-menu {
@@ -449,6 +438,9 @@
   }
 }
 @media (max-width: 470px) {
+  .resultl__title {
+    font-size: 7px;
+  }
   .btn-right {
     background: url(http://localhost:3000/button-sprite.png) no-repeat 12px -135px;
     height: 40px;
@@ -505,10 +497,10 @@
   }
 }
 
-@media (max-height: 709px) {
+@media (max-height: 800px) {
   .resultl__title {
     padding-bottom: 5px;
-    font-size: 10px;
+    font-size: 7px;
   }
   .resultl__table {
     font-size: 12px;
@@ -577,7 +569,7 @@
 @media (max-height: 574px) {
   .resultl__title {
     padding-bottom: 5px;
-    font-size: 10px;
+    font-size: 7px;
   }
   .resultl__table {
     font-size: 12px;

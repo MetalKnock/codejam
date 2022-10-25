@@ -47,7 +47,3 @@ window.addEventListener(
   link.href = icon;
   document.getElementsByTagName("head")[0].appendChild(link);
 })();
-
-alert(
-  "Привет, остались небольшие недочеты, мне нужно еще немного времени. Пожалуйста, проверь мою работу ближе к концу дедлайна. Спасибо за понимание и хорошего дня."
-);

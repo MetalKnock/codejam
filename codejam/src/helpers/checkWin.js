@@ -20,7 +20,6 @@ function checkWin(matrix, transition, myAudio) {
   for (let i = 0; i < matrixInArray.length; i++) {
     if (matrixInArray[i] !== winningMatrix[i]) result = false;
   }
-  // result = true;
   if (result) {
     buttonDisabled("restart");
     buttonDisabled("save");
